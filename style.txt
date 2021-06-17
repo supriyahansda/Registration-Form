@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +9,8 @@
 :root {
     --myfont: 'Mulish', sans-serif;
     --my-btn-font: 'Montserrat', sans-serif;
-    --lg-lightcolor: linear-gradient(to left, rgba(116, 235, 213, 0.6), rgba(159, 172, 230, 0)) --lg-color: linear-gradient(to left, #74ebd5, #9face6);
+    --lg-lightcolor: linear-gradient(to left, rgba(116, 235, 213, 0.6), rgba(159, 172, 230, 0)) 
+    --lg-color: linear-gradient(to left, #74ebd5, #9face6);
 }
 
 body {
@@ -27,7 +29,8 @@ body {
     background-color: #fff;
     border-radius: 10px;
     -webkit-border-radius: 10px;
-    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12. overflow hidden;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12. 
+    overflow hidden;
     width: calc(100vw-65vw);
     max-width: 100%;
 }
