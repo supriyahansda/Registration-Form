@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" type="text/CSS" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>REGISTRATION FORM</h2>
+        </div>
+        <form class="form" id="form">
+            <div class="form-control">
+                <label>Name</label>
+                <input type="text" name="" id="Username" placeholder="Enter your fullname" autocomplete="off">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle">
+                <small>Error Message</small>
+            </div>
+            <div class="form-control">
+                <label>Email</label>
+                <input type="email" name="" id="Email" placeholder="Enter your Email ID" autocomplete="off">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error Message</small>
+            </div>
+            <div class="form-control">
+                <label>Institute</label>
+                <input type="text" name="" id="Institute" placeholder="Enter your Institute Name" autocomplete="off">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error Message</small>
+            </div>
+            <div class="form-control">
+                <label>Contact No.</label>
+                <input type="number" name="" id="Contact No." placeholder="Enter your Mobile Number" autocomplete="off">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error Message</small>
+            </div>
+            <div class="form-control">
+                <label>Message</label>
+                <input type="text" name="" id="Message" placeholder="Enter your Message" autocomplete="off">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error Message</small>
+            </div>
+            <input type="submit" value="submit" class="btn" name="">
+        </form>
+    </div>
+    <script type="text/javascript">
+        const form = Document.getElementById('form');
+        const Name = Document.getElementById('name');
+        const Email = Document.getElementById('email');
+        const Institute = Document.getElementById('institute');
+        const Contact = Document.getElementById('contact no.');
+        const Message = Document.getElementById('message');
+        //add event
+        form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                validate();
+            })
+            // more email validate
+        const isEmail = (emailval) => {
+                var atSymbol = emailval.indexOf("@");
+                if (atSymbol < 1) return false;
+                var dot = emailval.lastIndexOf('.');
+                if (dot <= atSymbol + 2) return false;
+                if (dot === emailval.length - 1) return false;
+                return true;
+            }
+            // define the validate function
+        const validate = () => {
+            const Name = Name.value.trim();
+            const Email = Email.value.trim();
+            const Institute = Institute.value.trim();
+            const Contact = Contact.value.trim();
+            const Message = Message.value.trim();
+            // validate name
+            if (nameval === "") {
+                setErrorMsg(name, 'name cannot be blank');
+            } else if (nameval.length <= 2) {
+                setErrorMsg(name, 'name min 2 char,max 150 char, no special char & no.');
+            } else {
+                setSuccessMsg(name);
+            }
+            // validate email
+            if (emailval === "") {
+                setErrorMsg(email, 'email cannot be blank');
+            } else if (!isEmail(emailval)) {
+                setErrorMsg(email, 'Not a valid Email');
+            } else {
+                setSuccessMsg(email);
+            }
+            // validate institute
+            if (instituteval === "") {
+                setErrorMsg(Institute, 'institute cannot be blank');
+            } else if (instituteval.length <= 2) {
+                setErrorMsg(institute, 'institute min 2 char,max 150 char, no special char & no.');
+            } else {
+                setSuccessMsg(Institute);
+            }
+            // validate Contact No.
+            if (Contactno.val === "") {
+                setErrorMsg(Contactno, 'contactno. cannot be blank');
+            } else if (contactno.val.length != 10) {
+                setErrorMsg(Contactno, 'Not a valid contact num');
+            } else {
+                setSuccessMsg(contactno);
+            }
+            // validate message
+            if (messageval === "") {
+                setErrorMsg(Message, 'message cannot be blank');
+            } else if (messageval.length <= 2) {
+                setErrorMsg(message, 'atleast 10 char, should not contain any special and html encode');
+            } else {
+                setSuccessMsg(Message);
+            }
+
+
+
+        }
+
+        function setErrorMsg(input, errormsgs) {
+            const formControl = input.parentElement;
+            const small = formControl.querySelector('small');
+            formControl.className = "form-control error";
+            small.innerText = errormsgs;
+        }
+
+        function setSuccessMsg(input) {
+            const formControl = input.parentElement;
+            formControl.className = "form-control success";
+        }
+    </script>
+</body>
+
+</html>
